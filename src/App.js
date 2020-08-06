@@ -1,24 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import DayWeather from './DayWeather';
+import weatherData from './data';
+console.log(weatherData)
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {weatherData.map((elem, i) =>
+        <DayWeather
+          key={i}
+          day={elem.day}
+          src={elem.src}
+          highestTemp={elem.highestTemp}
+          lowestTemp={elem.lowestTemp}
+        />
+      )}
     </div>
   );
 }
